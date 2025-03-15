@@ -3,10 +3,10 @@ codeunit 50991 WarehouseNotifications
     [EventSubscriber(ObjectType::page, 42, 'OnAfterSalesOrderPosted', '', true, true)]
     local procedure OnAfterSalesOrderPosted(SalesHeader: Record "Sales Header")
     var
-        NotificationMessage: Label 'Sales order %1 has been posted. Please 2% prepare the items for shipment00000.', Comment = '%1 = tuj, 2% = hjghj';
+        NotificationMessage: Label 'Sales order %1 has been posted. Please prepare the items for shipment00000.', Comment = '%1 = Sales Order No.';
     begin
         // ارسال اعلان به بخش انبار
-        Message(NotificationMessage, SalesHeader."Document Date", SalesHeader."No."); //NotificationMessage, SalesHeader."No."
+        Message(NotificationMessage, SalesHeader."No."); //NotificationMessage, SalesHeader."No."
         // یا ارسال ایمیل، پیامک، و غیره
     end;
 
